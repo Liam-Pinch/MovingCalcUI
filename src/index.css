@@ -1,0 +1,30 @@
+html,body{
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+
+.landing-page{
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background: url("/MovingCalcAssests/ImgOne.jpg") no-repeat center center;
+  background-size:cover;
+  background-position: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.mortgage-calc-form{
+  
+  margin-top: 20px;
+  margin-left: 10px;
+  padding-left: 10px;
+  padding-top: 10px;
+  height: 40vh;
+  width: 30vw;
+  border: solid black 2px;
+  border-radius: 5px; 
+  box-shadow: 8px 8px 0px black;
+  background-color: white;
+}
