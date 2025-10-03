@@ -31,17 +31,13 @@ function MortgageCalcForm(){
                     onChange={changeHousePrice}
                 />
             </label>
-            <br/>
-            <br/>
             <label> Deposit: 
                 <input
                     type="number"
                     value={deposit}
                     onChange={changeDeposit}
                 />
-            </label>
-            <br/>
-            <br/>
+            </label>   
             <label> Annual Interest Rate:
                 <input
                     type="number"
@@ -49,8 +45,6 @@ function MortgageCalcForm(){
                     onChange={changeAnnualInterestRate}
                 />
             </label>
-            <br/>
-            <br/>
             <label> Number of Years:
                 <input
                     type = "number"
@@ -58,18 +52,17 @@ function MortgageCalcForm(){
                     onChange={changeTermYears}
                 />
             </label>
-            <br/>
             <button>Submit</button> {/* Change this to submit data to API when form is properly */}
 
-            <br/><br/>
+            
         </form>
         
             House Price: {HousePrice}
-            <br/>
+            
             Deposit: {deposit}
-            <br/>
+            
             Annual Interest: {AnnualInterestRate}
-            <br/>
+            
             Years: {TermYears}
         
     </div>

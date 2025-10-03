@@ -5,6 +5,9 @@ import BathroomComponent from './BathroomComponent'
 import KitchenComponent from './KitchenComponent'
 import LivingroomComponent from './LivingroomComponent'
 import DecoratingComponent from './DecoratingComponent'
+import BedroomComponent from './BedroomComponent'
+import VanComponent from './VanComponent'
+import EssentialsComponent from './EssentialsComponent'
 
 
 function App() {
@@ -12,11 +15,8 @@ function App() {
   return (
     <>
     <div className="landing-page">
-    <MortgageCalcForm></MortgageCalcForm>
-    <BathroomComponent></BathroomComponent>
-    <KitchenComponent></KitchenComponent>
-    <LivingroomComponent></LivingroomComponent>
-    <DecoratingComponent></DecoratingComponent>
+      <BathroomComponent/>
+
     </div>
     </>
   )

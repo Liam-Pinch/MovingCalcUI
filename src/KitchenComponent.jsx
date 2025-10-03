@@ -40,9 +40,10 @@ function KitchenComponent({onChange}){
 
     return(
         <div className="kitchen-component-form">
+            <h3> Kitchen </h3>
             <form>
                 <label>
-                    Length of the room:
+                    Length of the room (cm):
                     <input
                         type="number"
                         name="lengthOfRoom"
@@ -51,7 +52,7 @@ function KitchenComponent({onChange}){
                     />
                 </label>
                 <label>
-                    Width of the room:
+                    Width of the room (cm):
                     <input
                         type="number"
                         name="widthOfRoom"
@@ -60,7 +61,7 @@ function KitchenComponent({onChange}){
                     />
                 </label>
                 <label>
-                    Height of the room:
+                    Height of the room (cm):
                     <input
                         type="number"
                         name="heightOfRoom"
@@ -107,10 +108,10 @@ function KitchenComponent({onChange}){
                 <label>
                     Cost of the underlay:
                     <input
-                        type="number"
-                        name="underlayCost"
-                        value={formData.underlayCost}
-                        onChange={handleChange}
+                        type="checkbox"
+                        name="underlay"
+                        checked={formData.underlay}
+                        onChange={(e)=> handleChange({target: {name: "underlay", value: e.target.checked}})}
                     />
                 </label>
                 <label>
@@ -257,6 +258,7 @@ function KitchenComponent({onChange}){
                         onChange={handleChange}
                     />
                 </label>
+                <button> Submit </button>
             </form>
         </div>
     )

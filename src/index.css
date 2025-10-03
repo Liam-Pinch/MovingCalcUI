@@ -1,30 +1,165 @@
 html,body{
   margin: 0;
   padding: 0;
-  height: 100vh;
+  min-height: 100vh;
+  font-family: Arial, sans-sarif;
 }
 
 .landing-page{
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
   background: url("/MovingCalcAssests/ImgOne.jpg") no-repeat center center;
   background-size:cover;
   background-position: center;
-  height: 100vh;
-  width: 100vw;
+  min-height: 100vh;
+  width: 100%;
+  padding: 20px;
 }
 
 .mortgage-calc-form{
-  
-  margin-top: 20px;
-  margin-left: 10px;
-  padding-left: 10px;
-  padding-top: 10px;
-  height: 40vh;
-  width: 30vw;
-  border: solid black 2px;
-  border-radius: 5px; 
-  box-shadow: 8px 8px 0px black;
   background-color: white;
+  border: 2px solid black;
+  border-radius: 5px;
+  box-shadow: 8px 8px 0 black;
+  padding: 20px;
+  width:100%;
+  max-width: 400px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
+
+
+
+.mortgage-calc-form label {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+}
+
+.mortgage-calc-form input,
+.mortgage-calc-form select,
+.mortgage-calc-form textarea{
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.mortgage-calc-form button{
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.mortgage-calc-form button:hover {
+  background-color: #0056b3;
+}
+
+
+.bathroom-component-form,
+.bedroom-component-form,
+.decorating-component-form,
+.essentials-component-form,
+.kitchen-component-form,
+.livingroom-component-form,
+.van-component-form{
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 5px;
+  box-shadow: 8px 8px 0 black;
+  padding: 20px;
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.bathroom-component-form label,
+.bedroom-component-form label,
+.decorating-component-form label,
+.essentials-component-form label,
+.kitchen-component-form label,
+.livingroom-component-form label,
+.van-component-form label{
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  padding: 8px;
+}
+
+.bathroom-component-form input,
+.bedroom-component-form input,
+.decorating-component-form input,
+.essentials-component-form input,
+.kitchen-component-form input,
+.livingroom-component-form input,
+.van-component-form input,
+.bathroom-component-form select,
+.bedroom-component-form select,
+.decorating-component-form select,
+.essentials-component-form select,
+.kitchen-component-form select,
+.livingroom-component-form select,
+.van-component-form select,
+.bathroom-component-form textarea,
+.bedroom-component-form textarea,
+.decorating-component-form textarea,
+.essentials-component-form textarea,
+.kitchen-component-form textarea,
+.livingroom-component-form textarea,
+.van-component-form textarea{
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.bathroom-component-form button,
+.bedroom-component-form button,
+.essentials-component-form button,
+.decorating-component-form button,
+.kitchen-component-form button,
+.livingroom-component-form button,
+.van-component-form button{
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.bathroom-component-form button:hover,
+.bedroom-component-form button:hover,
+.decorating-component-form button:hover,
+.essentials-component-form button:hover,
+.kitchen-component-form button:hover,
+.livingroom-component-form button:hover,
+.van-component-form button:hover{
+  background-color: #0056b3;
+}
+
+
+
+
+
+@media (max-width: 500px) {
+  .mortgage-calc-form {
+    max-width: 100%;
+    padding: 15px;
+  }
+}
+
+

@@ -31,9 +31,10 @@ function LivingroomComponent({onChange}){
 
     return(
         <div className="livingroom-component-form">
+            <h3> Living Room </h3>
             <form>
-            <label>
-                    Length of the room:
+                <label>
+                    Length of the room (cm):
                     <input
                         type="number"
                         name="lengthOfRoom"
@@ -42,7 +43,7 @@ function LivingroomComponent({onChange}){
                     />
                 </label>
                 <label>
-                    Width of the room:
+                    Width of the room (cm):
                     <input
                         type="number"
                         name="widthOfRoom"
@@ -51,7 +52,7 @@ function LivingroomComponent({onChange}){
                     />
                 </label>
                 <label>
-                    Height of the room:
+                    Height of the room (cm):
                     <input
                         type="number"
                         name="heightOfRoom"
@@ -89,10 +90,10 @@ function LivingroomComponent({onChange}){
                 <label>
                     Is Underlay Required?:
                     <input 
-                        type="text"
+                        type="checkbox"
                         name="underlay"
-                        value={formData.underlay}
-                        onChange={handleChange}
+                        checked={formData.underlay}
+                        onChange={(e)=> handleChange({target: {name: "underlay", value: e.target.checked}})}
                     />
                 </label>
                 <label>
@@ -158,6 +159,7 @@ function LivingroomComponent({onChange}){
                         onChange={handleChange}
                     />
                 </label>
+                <button> Submit </button>
             </form>
         </div>
     )

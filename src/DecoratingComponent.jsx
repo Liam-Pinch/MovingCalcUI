@@ -18,55 +18,63 @@ function DecoratingComponent({onChange}){
         })
     }
 
-    return(<>
-        <form>
-            <label>
-                Cost of moving boxes:
-                <input
-                    type="number"
-                    name="boxesAndEquipment"
-                    value={formData.boxesAndEquipment}
-                    onChange={handleChange}
-                />
-            </label>
-            <label>
-                Cost of paint equipment:
-                <input
-                    type="number"
-                    name="paintEquipment"
-                    value={formData.paintEquipment}
-                    onChange={handleChange}
-                />
-            </label>
-            <label>
-                Cost of wall papering equipment:
-                <input
-                    type="number"
-                    name="wallpaperingEquipment"
-                    value={formData.wallpaperEquipment}
-                    onChange={handleChange}
-                />
-            </label>
-            <label>
-                Cost of flooring Equipment:
-                <input
-                    type="number"
-                    name="flooringEquipment"
-                    value={formData.flooringEquipment}
-                    onChange={handleChange}
-                />
-            </label>
-            <label>
-                Cost of Light Fittings:
-                <input
-                    type="number"
-                    name="lightfitting"
-                    value={formData.lightfittings}
-                    onChange={handleChange}
-                />
-            </label>
-        </form>
-    </>)
+    return(
+        
+            
+        <div className="decorating-component-form">
+            <form>
+                <h3> Decorating </h3>
+                <label>
+                    Cost of moving boxes:
+                    <input
+                        type="number"
+                        name="boxesAndEquipment"
+                        value={formData.boxesAndEquipment}
+                        onChange={handleChange}
+                    />
+                </label>
+                <label>
+                    Cost of paint equipment:
+                    <input
+                        type="number"
+                        name="paintEquipment"
+                        value={formData.paintEquipment}
+                        onChange={handleChange}
+                    />
+                </label>
+                <label>
+                    Cost of wall papering equipment:
+                    <input
+                        type="number"
+                        name="wallpaperingEquipment"
+                        value={formData.wallpaperEquipment}
+                        onChange={handleChange}
+                    />
+                </label>
+                <label>
+                    Cost of flooring Equipment:
+                    <input
+                        type="number"
+                        name="flooringEquipment"
+                        value={formData.flooringEquipment}
+                        onChange={handleChange}
+                    />
+                </label>
+                <label>
+                    Cost of Light Fittings:
+                    <input
+                        type="number"
+                        name="lightfitting"
+                        value={formData.lightfittings}
+                        onChange={handleChange}
+                    />
+                </label>
+                
+                <button>Submit</button>
+            </form>
+        </div>
+        
+    )
 }
 
 export default DecoratingComponent
