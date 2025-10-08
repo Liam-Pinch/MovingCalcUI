@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function LivingroomComponent({onChange}){
+function LivingroomComponent({onChange, onNext, onBack}){
 
     const [formData, setFormData] = useState({
         lengthOfRoom: "",
@@ -10,7 +10,7 @@ function LivingroomComponent({onChange}){
         paintCoverage:"",
         numberOfCoats:"",
         floorCost: "",
-        underlay: "",
+        underlay: false,
         underlayCost: "",
         sofa:"",
         tv:"",
@@ -29,10 +29,15 @@ function LivingroomComponent({onChange}){
         })
     }
 
+    const handleSubmit=(e) => {
+        e.preventDefault();
+        if(onNext) onNext(formData);
+    }
+
     return(
         <div className="livingroom-component-form">
             <h3> Living Room </h3>
-            <form>
+            <form  onSubmit={handleSubmit}>
                 <label>
                     Length of the room (cm):
                     <input
@@ -154,12 +159,17 @@ function LivingroomComponent({onChange}){
                     Cost of table and chairs:
                     <input
                         type="number"
-                        name="livingroomLamps"
-                        value={formData.livingroomLamps}
+                        name="tableAndChairs"
+                        value={formData.tableAndChairs}
                         onChange={handleChange}
                     />
                 </label>
-                <button> Submit </button>
+                <div className="button-row">
+                    <button type="button" onClick={onBack}>
+                        Back
+                    </button>
+                    <button type="submit"> Next </button>
+                </div>
             </form>
         </div>
     )

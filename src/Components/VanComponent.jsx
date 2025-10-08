@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function VanComponent({onChange}){
+function VanComponent({onChange, onNext, onBack}){
     const [formData, setFormData] = useState({
         VanHire:"",
         VanHireDays:"",
@@ -17,10 +17,15 @@ function VanComponent({onChange}){
         })
     }
 
+    const handleSubmit=(e) => {
+        e.preventDefault();
+        if(onNext) onNext(formData);
+    }
+
     return(
         <div className="van-component-form">
             <h3> Van Hire </h3>
-            <form>
+            <form  onSubmit={handleSubmit}>
                 <label>
                     Cost of van hire per day:
                     <input
@@ -57,7 +62,12 @@ function VanComponent({onChange}){
                         onChange={handleChange}
                     />
                 </label>
-                <button> Submit </button>
+                <div className="button-row">
+                    <button type="button" onClick={onBack}>
+                        Back
+                    </button>
+                    <button type="submit"> Next </button>
+                </div>
             </form>
         </div>
     )

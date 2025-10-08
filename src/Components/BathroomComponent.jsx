@@ -1,42 +1,42 @@
 import { useState } from "react";
 
-function BedroomComponent ({onchange}){
+function BathroomComponent({onChange, onNext, onBack}){
+
     const [formData, setFormData] = useState({
-        lengthOfRoom:"", 
-        widthOfRoom:"", 
-        heightOfRoom:"", 
-        flooringCost:"",
-        underlay:"", 
-        underlayCost:"", 
-        paintCost:"", 
+        lengthOfRoom: "",
+        widthOfRoom: "",
+        heightOfRoom: "",
+        paintCost: "",
         paintCoverage:"",
-        numberOfCoats:"", 
-        Bed:"", 
-        Mattress:"", 
-        Bedding:"", 
-        Wardrobe:"",
-        ChestOfDraws:"", 
-        BedroomLamps:"",
-        Curtains:""
-
+        numberOfCoats:"",
+        floorCost: "",
+        underlay: false,
+        underlayCost: "",
+        towels: "",
+        floormats: "",
+        showerCurtain:""
     })
-
-
+    
     function handleChange(e){
-        const {name,value} = e.target;
-        setFormData(prev=>{
-            const updated = {...prev,[name]: value};
-            if(onChange) onChange(updated);
+        const {name, value} = e.target;
+        setFormData(prev => {
+            const updated = {...prev, [name]: value};
+            if (onChange) onChange(updated);
             return updated;
-        })
+        });
+    }
+
+    const handleSubmit=(e) => {
+        e.preventDefault();
+        if(onNext) onNext(formData);
     }
 
     return(
-    <div className="bedroom-component-form">
-        <form>
-            <h3>Bedroom </h3>
-            <label>
-                    Length of the room (cm):
+        <div className="bathroom-component-form">
+            <form onSubmit={handleSubmit}>
+                <h3> Bathroom </h3>
+                <label>
+                    Length of the Room (cm):
                     <input
                         type="number"
                         name="lengthOfRoom"
@@ -45,7 +45,7 @@ function BedroomComponent ({onchange}){
                     />
                 </label>
                 <label>
-                    Width of the room (cm):
+                    Width of the Room(cm):
                     <input
                         type="number"
                         name="widthOfRoom"
@@ -54,7 +54,7 @@ function BedroomComponent ({onchange}){
                     />
                 </label>
                 <label>
-                    Height of the room (cm):
+                    Height of Room(cm):
                     <input
                         type="number"
                         name="heightOfRoom"
@@ -108,72 +108,45 @@ function BedroomComponent ({onchange}){
                     />
                 </label>
                 <label>
-                    Cost of Bed:
+                    Cost of towels:
                     <input
                         type="number"
-                        name="Bed"
-                        value={formData.Bed}
+                        name="towels"
+                        value={formData.towels}
                         onChange={handleChange}
                     />
                 </label>
                 <label>
-                    Cost of Matress:
-                    <input
+                    Cost of floor mats:
+                    <input 
                         type="number"
-                        name="Matress"
-                        value={formData.Mattress}
+                        name="floormats"
+                        value={formData.floormats}
                         onChange={handleChange}
                     />
                 </label>
                 <label>
-                    Cost of Bedding:
+                    Cost of Shower Curtain:
                     <input
                         type="number"
-                        name="Bedding"
-                        value={formData.Bedding}
+                        name="showerCurtain"
+                        value={formData.showerCurtain}
                         onChange={handleChange}
                     />
                 </label>
-                <label>
-                    Cost of Wardrobe:
-                    <input
-                        type="number"
-                        name="Wardrobe"
-                        value={formData.Wardrobe}
-                        onChange={handleChange}
-                    />
-                </label>
-                <label>
-                    Cost of chest of draws / side tables:
-                    <input
-                        type="number"
-                        name="ChestOfDraws"
-                        value={formData.ChestOfDraws}
-                        onChange={handleChange}
-                    />
-                </label>
-                <label>
-                    Cost of bedroom lamps:
-                    <input
-                        type="number"
-                        name="BedroomLamps"
-                        value={formData.BedroomLamps}
-                        onChange={handleChange}
-                    />
-                </label>
-                <label>
-                    Cost of Curtains:
-                    <input
-                        type="number"
-                        name="Curtains"
-                        value={formData.Curtains}
-                        onChange={handleChange}
-                    />
-                </label>
-                <button>Submit</button>
-        </form>
-    </div>)
+                
+                <div className="button-row">
+                    <button type="button" onClick={onBack}>
+                        Back
+                    </button>
+                    <button type="submit"> Next </button>
+                </div>
+            </form>
 
+        </div>
+
+
+    )
 }
 
-export default BedroomComponent;
+export default BathroomComponent;

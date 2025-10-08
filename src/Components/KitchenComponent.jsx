@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function KitchenComponent({onChange}){
+function KitchenComponent({onChange, onNext, onBack}){
 
     const[formData, setFormData] = useState({
         lengthOfRoom: "",
@@ -10,23 +10,23 @@ function KitchenComponent({onChange}){
         paintCoverage:"",
         numberOfCoats:"",
         floorCost: "",
-        underlay: "",
+        underlay: false,
         underlayCost: "",
-        Fridge:"",
-        Freezer:"",
-        WashingMachine:"",
-        Dishwasher:"", 
-        TumbleDryer:"", 
-        Cooker:"", 
-        Kettle:"", 
-        Microwave:"", 
-        Toaster:"", 
-        Dishes:"", 
-        Cutlery:"", 
-        Knives:"", 
-        Utensils:"", 
-        Tupperware:"", 
-        MixingBowl:"" 
+        fridge:"",
+        freezer:"",
+        washingMachine:"",
+        dishwasher:"", 
+        tumbleDryer:"", 
+        cooker:"", 
+        kettle:"", 
+        microwave:"", 
+        toaster:"", 
+        dishes:"", 
+        cutlery:"", 
+        knives:"", 
+        utensils:"", 
+        tupperware:"", 
+        mixingBowl:"" 
     })
 
     function handleChange(e){
@@ -38,10 +38,15 @@ function KitchenComponent({onChange}){
         })
     }
 
+    const handleSubmit=(e) => {
+        e.preventDefault();
+        if(onNext) onNext(formData);
+    }
+
     return(
-        <div className="kitchen-component-form">
+        <div className="kitchen-component-form" >
             <h3> Kitchen </h3>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <label>
                     Length of the room (cm):
                     <input
@@ -99,19 +104,19 @@ function KitchenComponent({onChange}){
                 <label>
                     Is Underlay Required?:
                     <input 
-                        type="text"
+                        type="checkbox"
                         name="underlay"
                         value={formData.underlay}
-                        onChange={handleChange}
+                        onChange={(e)=> handleChange({target: {name: "underlay", value: e.target.checked}})}
                     />
                 </label>
                 <label>
                     Cost of the underlay:
                     <input
-                        type="checkbox"
+                        type="number"
                         name="underlay"
-                        checked={formData.underlay}
-                        onChange={(e)=> handleChange({target: {name: "underlay", value: e.target.checked}})}
+                        checked={formData.underlayCost}
+                        onChange={handleChange}
                     />
                 </label>
                 <label>
@@ -119,7 +124,7 @@ function KitchenComponent({onChange}){
                     <input
                         type="number"
                         name="fridge"
-                        value={formData.Fridge}
+                        value={formData.fridge}
                         onChange={handleChange}
                     />
                 </label>
@@ -128,7 +133,7 @@ function KitchenComponent({onChange}){
                     <input
                         type="number"
                         name="freezer"
-                        value={formData.Freezer}
+                        value={formData.freezer}
                         onChange={handleChange}
                     />
                 </label>
@@ -137,7 +142,7 @@ function KitchenComponent({onChange}){
                     <input
                         type="number"
                         name="dishwasher"
-                        value={formData.Dishwasher}
+                        value={formData.dishwasher}
                         onChange={handleChange}
                     />
                 </label>
@@ -146,7 +151,7 @@ function KitchenComponent({onChange}){
                     <input
                         type="number"
                         name="washingMachine"
-                        value={formData.WashingMachine}
+                        value={formData.washingMachine}
                         onChange={handleChange}
                     />
                 </label>
@@ -155,7 +160,7 @@ function KitchenComponent({onChange}){
                     <input
                         type="number"
                         name="tumbleDryer"
-                        value={formData.TumbleDryer}
+                        value={formData.tumbleDryer}
                         onChange={handleChange}
                     />
                 </label>
@@ -164,7 +169,7 @@ function KitchenComponent({onChange}){
                     <input
                         type="number"
                         name="dishwasher"
-                        value={formData.Dishwasher}
+                        value={formData.dishwasher}
                         onChange={handleChange}
                     />
                 </label>
@@ -173,7 +178,7 @@ function KitchenComponent({onChange}){
                     <input
                         type="number"
                         name="cooker"
-                        value={formData.Cooker}
+                        value={formData.cooker}
                         onChange={handleChange}
                     />
                 </label>
@@ -182,7 +187,7 @@ function KitchenComponent({onChange}){
                     <input
                         type="number"
                         name="kettle"
-                        value={formData.Kettle}
+                        value={formData.kettle}
                         onChange={handleChange}
                     />
                 </label>
@@ -191,7 +196,7 @@ function KitchenComponent({onChange}){
                     <input
                         type="number"
                         name="microwave"
-                        value={formData.Microwave}
+                        value={formData.microwave}
                         onChange={handleChange}
                     />
                 </label>
@@ -200,7 +205,7 @@ function KitchenComponent({onChange}){
                     <input
                         type="number"
                         name="toaster"
-                        value={formData.Toaster}
+                        value={formData.toaster}
                         onChange={handleChange}
                     />
                 </label>
@@ -209,7 +214,7 @@ function KitchenComponent({onChange}){
                     <input
                         type="number"
                         name="dishes"
-                        value={formData.Dishes}
+                        value={formData.dishes}
                         onChange={handleChange}
                     />
                 </label>
@@ -218,7 +223,7 @@ function KitchenComponent({onChange}){
                     <input
                         type="number"
                         name="cutlery"
-                        value={formData.Cutlery}
+                        value={formData.cutlery}
                         onChange={handleChange}
                     />
                 </label>
@@ -227,7 +232,7 @@ function KitchenComponent({onChange}){
                     <input
                         type="number"
                         name="knives"
-                        value={formData.Knives}
+                        value={formData.knives}
                         onChange={handleChange}
                     />
                 </label>
@@ -236,7 +241,7 @@ function KitchenComponent({onChange}){
                     <input
                         type="number"
                         name="utensils"
-                        value={formData.Utensils}
+                        value={formData.utensils}
                         onChange={handleChange}
                     />
                 </label>
@@ -245,7 +250,7 @@ function KitchenComponent({onChange}){
                     <input
                         type="number"
                         name="tupperware"
-                        value={formData.Tupperware}
+                        value={formData.tupperware}
                         onChange={handleChange}
                     />
                 </label>
@@ -253,12 +258,17 @@ function KitchenComponent({onChange}){
                     Mixing Bowls:
                     <input
                         type="number"
-                        name="mixingBowls"
-                        value={formData.MixingBowl}
+                        name="mixingBowl"
+                        value={formData.mixingBowl}
                         onChange={handleChange}
                     />
                 </label>
-                <button> Submit </button>
+                <div className="button-row">
+                    <button type="button" onClick={onBack}>
+                        Back
+                    </button>
+                    <button type="submit"> Next </button>
+                </div>
             </form>
         </div>
     )

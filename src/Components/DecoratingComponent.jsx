@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function DecoratingComponent({onChange}){
+function DecoratingComponent({onChange, onNext, onBack}){
     const [formData, setFormData] = useState({
         boxesAndEquipment:"",
         paintEquipment:"",
@@ -10,7 +10,7 @@ function DecoratingComponent({onChange}){
     })
     
     function handleChange(e){
-        const [name,value] = e.target;
+        const {name,value} = e.target;
         setFormData(prev=>{
             const updated = {...prev, [name]: value};
             if(onChange) onChange(updated);
@@ -18,11 +18,16 @@ function DecoratingComponent({onChange}){
         })
     }
 
+    const handleSubmit=(e) => {
+        e.preventDefault();
+        if(onNext) onNext(formData);
+    }
+
     return(
         
             
         <div className="decorating-component-form">
-            <form>
+            <form onSubmit={handleSubmit}>
                 <h3> Decorating </h3>
                 <label>
                     Cost of moving boxes:
@@ -46,7 +51,7 @@ function DecoratingComponent({onChange}){
                     Cost of wall papering equipment:
                     <input
                         type="number"
-                        name="wallpaperingEquipment"
+                        name="wallpaperEquipment"
                         value={formData.wallpaperEquipment}
                         onChange={handleChange}
                     />
@@ -64,13 +69,18 @@ function DecoratingComponent({onChange}){
                     Cost of Light Fittings:
                     <input
                         type="number"
-                        name="lightfitting"
+                        name="lightfittings"
                         value={formData.lightfittings}
                         onChange={handleChange}
                     />
                 </label>
                 
-                <button>Submit</button>
+                <div className="button-row">
+                    <button type="button" onClick={onBack}>
+                        Back
+                    </button>
+                    <button type="submit"> Next </button>
+                </div>
             </form>
         </div>
         

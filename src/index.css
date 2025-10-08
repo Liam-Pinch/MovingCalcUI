@@ -9,7 +9,7 @@ html,body{
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url("/MovingCalcAssests/ImgOne.jpg") no-repeat center center;
+  background: url("/MovingCalcAssests/redbrickhouses.png") no-repeat center center;
   background-size:cover;
   background-position: center;
   min-height: 100vh;

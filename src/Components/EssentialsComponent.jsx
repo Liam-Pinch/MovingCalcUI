@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function EssentialsComponent(onChange){
+function EssentialsComponent({onChange, onNext, onBack}){
 
     const [formData, setFormData] = useState({
         Groceries:"",
@@ -21,10 +21,15 @@ function EssentialsComponent(onChange){
         })
     }
 
+    const handleSubmit=(e) => {
+        e.preventDefault();
+        if(onNext) onNext(formData);
+    }
+
     return(
     <div className="essentials-component-form">
         <h3> Essentials </h3>
-        <form>
+        <form onSubmit={handleSubmit}>
             <label>
                 Cost of Groceries:
                 <input
@@ -38,7 +43,7 @@ function EssentialsComponent(onChange){
                 Price of all cleaning supplies:
                 <input
                     type="number"
-                    name="Groceries"
+                    name="CleaningSupplies"
                     value={formData.CleaningSupplies}
                     onChange={handleChange}
                 />
@@ -56,7 +61,7 @@ function EssentialsComponent(onChange){
                 Price of Gas per month:
                 <input
                     type="number"
-                    name="Groceries"
+                    name="Gas"
                     value={formData.Gas}
                     onChange={handleChange}
                 />
@@ -65,7 +70,7 @@ function EssentialsComponent(onChange){
                 Price of Eletric per month:
                 <input
                     type="number"
-                    name="Eletric"
+                    name="Electric"
                     value={formData.Electric}
                     onChange={handleChange}
                 />
@@ -88,7 +93,12 @@ function EssentialsComponent(onChange){
                     onChange={handleChange}
                 />
             </label>
-            <button> Submit </button>
+            <div className="button-row">
+                    <button type="button" onClick={onBack}>
+                        Back
+                    </button>
+                    <button type="submit"> Next </button>
+                </div>
         </form>
     </div>)
 
